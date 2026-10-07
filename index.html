@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>R4 Refrigeração Automotiva | Boa Vista - RR</title>
+
+  <meta name="description"
+        content="R4 Refrigeração Automotiva — ar-condicionado automotivo, mecânica, elétrica, peças e acessórios em Boa Vista-RR.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #087443;
+      --green-dark: #03492b;
+      --yellow: #ffd000;
+      --blue: #063b91;
+      --blue-dark: #021d4d;
+      --white: #fff;
+      --gray: #f4f6f8;
+      --text: #17202a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,29,77,.97);
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow);
+      color: var(--blue-dark);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .stripe {
+      height: 7px;
+      background: linear-gradient(
+        90deg,
+        var(--green) 0 33%,
+        var(--yellow) 33% 66%,
+        var(--blue) 66% 100%
+      );
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(3,73,43,.97),
+          rgba(2,29,77,.97)
+        );
+    }
+
+    .hero::after {
+      content: "R4";
+      position: absolute;
+      right: -50px;
+      bottom: -130px;
+      font-size: 22rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.035);
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--blue-dark);
+      padding: 8px 17px;
+      border-radius: 30px;
+      font-size: .85rem;
+      font-weight: 900;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #e3eaf5;
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--blue-dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255,208,0,.3);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--blue-dark);
+    }
+
+    section {
+      padding: 80px 25px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: var(--green);
+      font-size: .9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      color: var(--blue-dark);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 12px auto 0;
+      color: #667085;
+    }
+
+    .services {
+      background: var(--gray);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      border-top: 5px solid var(--green);
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.10);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8f6ef;
+      color: var(--green);
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #667085;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-box {
+      min-height: 360px;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 20px;
+      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          var(--green-dark),
+          var(--blue-dark)
+        );
+    }
+
+    .about-box h3 {
+      color: var(--yellow);
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: #e7edf7;
+    }
+
+    .about-text h2 {
+      color: var(--blue-dark);
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #59636e;
+      margin-bottom: 15px;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .value {
+      padding: 15px;
+      background: #fafafa;
+      border-left: 4px solid var(--yellow);
+      font-weight: bold;
+    }
+
+    .cta {
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(
+          120deg,
+          var(--green-dark),
+          var(--blue-dark)
+        );
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem,5vw,3.5rem);
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: var(--yellow);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #dbe5f5;
+    }
+
+    .contact {
+      background: var(--gray);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,.05);
+    }
+
+    .contact-card .icon {
+      margin: 0 auto 15px;
+    }
+
+    .contact-card h3 {
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #667085;
+    }
+
+    footer {
+      background: #001126;
+      color: white;
+      padding: 45px 25px 25px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      max-width: 500px;
+    }
+
+    .footer-brand h3 {
+      color: var(--yellow);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p,
+    .footer-info {
+      color: #aebbd0;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #7e8ca1;
+      font-size: .85rem;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #25d366;
+      color: white;
+      font-size: 27px;
+      font-weight: 900;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      z-index: 999;
+      transition: .3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .cards,
+      .contact-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      section {
+        padding: 60px 20px;
+      }
+
+      .hero-content {
+        padding: 60px 20px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box {
+        padding: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="#inicio" class="logo">
+      <div class="logo-icon">R4</div>
+      R4 REFRIGERAÇÃO
+    </a>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+  </div>
+</header>
+
+<div class="stripe"></div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🇧🇷 Qualidade • Trabalho • Confiança
+      </div>
+
+      <h1>
+        Climatização automotiva
+        <span>de verdade.</span>
+      </h1>
+
+      <p>
+        Especialistas em refrigeração, ar-condicionado,
+        mecânica, elétrica, peças e acessórios automotivos
+        em Boa Vista - Roraima.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          href="https://wa.me/5595991349993"
+          class="btn btn-primary"
+          target="_blank"
+        >
+          Falar no WhatsApp
+        </a>
+
+        <a href="#servicos" class="btn btn-outline">
+          Conhecer serviços
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVIÇOS -->
+  <section class="services" id="servicos">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>O que fazemos</span>
+
+        <h2>
+          Nossos Serviços
+        </h2>
+
+        <p>
+          Soluções completas para manter seu
+          veículo funcionando e climatizado.
+        </p>
+
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">❄️</div>
+
+          <h3>
+            Ar-Condicionado Automotivo
+          </h3>
+
+          <p>
+            Instalação, manutenção e reparação
+            de sistemas de climatização automotiva.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔧</div>
+
+          <h3>
+            Mecânica
+          </h3>
+
+          <p>
+            Manutenção e reparação mecânica
+            para veículos automotores.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚡</div>
+
+          <h3>
+            Elétrica Automotiva
+          </h3>
+
+          <p>
+            Serviços de manutenção e reparação
+            elétrica para veículos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚙️</div>
+
+          <h3>
+            Peças e Acessórios
+          </h3>
+
+          <p>
+            Comércio de peças novas e usadas,
+            acessórios e componentes automotivos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛠️</div>
+
+          <h3>
+            Recuperação de Motores
+          </h3>
+
+          <p>
+            Serviços de recondicionamento e
+            recuperação de motores automotivos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧰</div>
+
+          <h3>
+            Ferramentas e Lubrificantes
+          </h3>
+
+          <p>
+            Produtos e materiais para manutenção
+            e cuidados com seu veículo.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EMPRESA -->
+  <section id="empresa">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-box">
+
+          <h3>R4</h3>
+
+          <p>
+            <strong>REFRIGERAÇÃO AUTOMOTIVA</strong>
+          </p>
+
+          <br>
+
+          <p>
+            Atendimento profissional para quem
+            não abre mão de conforto, segurança
+            e qualidade no veículo.
+          </p>
+
+          <br>
+
+          <strong>
+            🇧🇷 Trabalho e compromisso.
+          </strong>
+
+        </div>
+
+
+        <div class="about-text">
+
+          <h2>
+            Seu carro climatizado
+            e pronto para a estrada.
+          </h2>
+
+          <p>
+            A R4 Refrigeração Automotiva atua em
+            Boa Vista-RR com serviços de instalação,
+            manutenção e reparação de acessórios
+            para veículos automotores.
+          </p>
+
+          <p>
+            Trabalhamos também com mecânica,
+            elétrica automotiva, peças, acessórios,
+            lubrificantes e soluções relacionadas
+            à climatização.
+          </p>
+
+          <div class="values">
+
+            <div class="value">
+              ✓ Atendimento
+            </div>
+
+            <div class="value">
+              ✓ Qualidade
+            </div>
+
+            <div class="value">
+              ✓ Transparência
+            </div>
+
+            <div class="value">
+              ✓ Compromisso
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>
+        Está com problema no ar-condicionado?
+        <span>Fale com a R4.</span>
+      </h2>
+
+      <p>
+        Entre em contato pelo WhatsApp e
+        consulte nossos serviços.
+      </p>
+
+      <a
+        href="https://wa.me/5595991349993"
+        class="btn btn-primary"
+        target="_blank"
+      >
+        Chamar no WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Entre em contato</span>
+
+        <h2>
+          Fale com a R4
+        </h2>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <div class="icon">📍</div>
+
+          <h3>
+            Endereço
+          </h3>
+
+          <p>
+            Avenida Nossa Senhora da Consolata,
+            2771 - 02<br>
+            São Vicente<br>
+            Boa Vista - RR<br>
+            CEP 69303-465
+          </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="icon">📱</div>
+
+          <h3>
+            WhatsApp
+          </h3>
+
+          <p>
+            (95) 99134-9993
+          </p>
+
+          <br>
+
+          <a
+            href="https://wa.me/5595991349993"
+            class="btn btn-primary"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="icon">🏢</div>
+
+          <h3>
+            CNPJ
+          </h3>
+
+          <p>
+            64.703.782/0001-08
+          </p>
+
+          <br>
+
+          <p>
+            <strong>
+              R4 Refrigeração Automotiva
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-brand">
+
+      <h3>
+        R4 REFRIGERAÇÃO AUTOMOTIVA
+      </h3>
+
+      <p>
+        Climatização, mecânica, elétrica,
+        peças e acessórios automotivos.
+      </p>
+
+    </div>
+
+
+    <div class="footer-info">
+
+      <strong>
+        Roberson Borges de Sousa
+      </strong>
+
+      <br>
+
+      CNPJ: 64.703.782/0001-08
+
+      <br>
+
+      Boa Vista - Roraima
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © 2026 R4 Refrigeração Automotiva.
+    Todos os direitos reservados.
+
+  </div>
+
+</footer>
+
+
+<!-- WHATSAPP FLUTUANTE -->
+<a
+  href="https://wa.me/5595991349993"
+  class="whatsapp"
+  target="_blank"
+  aria-label="Falar com a R4 pelo WhatsApp"
+>
+  ☎
+</a>
+
+</body>
+</html>
